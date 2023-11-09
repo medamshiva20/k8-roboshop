@@ -1,0 +1,60 @@
+apiVersion: apps/v1
+kind: Deployment 
+metadata:
+ name: cart
+ namespace: roboshop
+ labels:
+  app: cart
+  tier: cart
+  project: roboshop
+spec:
+ replicas: 1
+ selector:
+  matachLabels:
+   app: cart
+   tier: cart
+   project: roboshop
+ template:
+  metadata:
+   labels:
+    app: cart
+    tier: cart
+    project: roboshop
+  spec:
+   containers:
+    - name: cart
+      image: sivadevops1014/cart:1.0.0
+      envFrom:
+       - configMapRef:
+          name: cart
+---
+apiVersion: v1
+kind: Service
+metadata:
+ name: cart
+ namespace: roboshop
+spec:
+ type: ClusterIP
+ selector:
+  app: cart
+  tier: cart
+  project: roboshop
+ ports:
+  - name: cart-port
+    protocol: TCP
+    port: 8080 # this port belongs to service
+    targetPort: 8080 # this port belongs to container
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+ name: cart
+ namespace: cart
+data:
+ REDIS_HOST: "redis"
+ CATALOGUE_HOST: "catalogue"
+ CATALOGUE_PORT: "8080"
+...
+
+ 
+ 
