@@ -1,55 +1,57 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
- name: payment
- namespace: roboshop
- labels:
-  app: payment
-  tier: payment
-  project: roboshop
-spec:
- replicas: 1
- selector:
-  matchLabels:
-   app: payment
-   tier: payment
-   project: roboshop
- template:
-  metadata:
-   labels:
+  name: payment
+  namespace: roboshop
+  labels: # these labels belong to deployment
     app: payment
-    tier: payment
+    tier: app
     project: roboshop
-  spec:
-   containers:
-    - name: payment
-      image: sivadevops1014/payment:1.0.0
-      envFrom:
-       - configMapRef:
-          name: payment
+spec:
+  replicas: 1
+  selector:
+    matchLabels: # these labels should match with pod
+      app: payment
+      tier: app
+      project: roboshop
+  template: # this is the pod definition
+    metadata:
+      labels:
+        app: payment
+        tier: app
+        project: roboshop
+    spec:
+      containers:
+      - name: payment
+        image: sivadevops1014/payment:1.0.0
+        envFrom:
+        - configMapRef:
+            name: payment
 ---
 apiVersion: v1
 kind: Service
 metadata:
- name: payment
- namespace: roboshop
+  name: payment
+  namespace: roboshop
 spec:
- type: ClusterIP
- ports:
+  selector:
+    app: payment
+    tier: app
+    project: roboshop
+  ports:
   - name: payment-port
     protocol: TCP
-    port: 8080
-    targetPort: 8080
+    port: 8080 # this port belongs to service
+    targetPort: 8080 # this port belongs to container
 ---
 apiVersion: v1
 kind: ConfigMap
 metadata:
- name: payment
- namespace: roboshop
+  name: payment
+  namespace: roboshop
 data:
- CART_HOST: "cart"
- CART_PORT": "8080"
- USER_HOST: "user"
- USER_PORT: "8080"
- AMQP_HOST: "rabbitmq"
- ...
+  CART_HOST: "cart"
+  CART_PORT: "8080"
+  USER_HOST: "user"
+  USER_PORT: "8080"
+  AMQP_HOST: "rabbitmq"
