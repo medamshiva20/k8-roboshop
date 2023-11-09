@@ -50,7 +50,7 @@ spec:
 apiVersion: v1
 kind: ConfigMap
 metadata:
- name: mysql-auth
+ name: mysql
  namespace: roboshop
 data:
  MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
@@ -61,7 +61,7 @@ data:
 apiVersion: v1
 kind: Secret
 metadata:
- name: mysql
+ name: mysql-auth
  namespace: roboshop
 data:
  MYSQL_USER: c2hpcHBpbmcK
