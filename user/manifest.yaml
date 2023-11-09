@@ -4,21 +4,22 @@ metadata:
  name: user
  namespace: roboshop
  labels:
-  app: user
-  tier: user
-  project: roboshop
+    app: user
+    tier: user
+    project: roboshop
 spec:
  replicas: 1
  selector:
-  app: user
-  tier: app
-  project: roboshop
+  matchLabels:
+    app: user
+    tier: app
+    project: roboshop
  template:
   metadata:
    labels:
-    app: user
-    tier: user
-    project: roboshop 
+      app: user
+      tier: user
+      project: roboshop 
   spec:
    containers:
     - name: user
@@ -53,3 +54,4 @@ data:
  MONGO: "true"
  MONGO_URL: "mongodb://mongodb:27017/user" # protocol//service-name:service-port/schema
  REDIS_HOST: "redis"
+...
