@@ -10,7 +10,7 @@ metadata:
 spec:
  replicas: 1
  selector:
-  matachLabels:
+  matachLables:
    app: cart
    tier: cart
    project: roboshop
