@@ -56,15 +56,15 @@ metadata:
 data:
  MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
  MYSQL_DATABASE: "cities"
- #MYSQL_USER: "shipping"  #We can pass username here or else we can pass through secrets as well
- #MYSQL_PASSWORD: "RoboShop@1" #We can pass password here or else we can pass through secrets as well
----
-apiVersion: v1
-kind: Secret
-metadata:
- name: mysql-auth
- namespace: roboshop
-data:
- MYSQL_USER: c2hpcHBpbmcK
- MYSQL_PASSWORD: Um9ib1Nob3BAMQo=
-...
+ MYSQL_USER: "shipping"  #We can pass username here or else we can pass through secrets as well
+ MYSQL_PASSWORD: "RoboShop@1" #We can pass password here or else we can pass through secrets as well
+# ---
+# apiVersion: v1
+# kind: Secret
+# metadata:
+#  name: mysql-auth
+#  namespace: roboshop
+# data:
+#  MYSQL_USER: c2hpcHBpbmcK
+#  MYSQL_PASSWORD: Um9ib1Nob3BAMQo=
+# ...
