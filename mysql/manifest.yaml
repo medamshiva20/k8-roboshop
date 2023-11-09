@@ -27,6 +27,7 @@ spec:
       envFrom:
        - configMapRef:
           name: mysql
+      envFrom:
        - secretRef:
           name: mysql-auth
 ---
