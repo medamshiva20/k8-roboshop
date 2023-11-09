@@ -10,7 +10,7 @@ metadata:
 spec:
  replicas: 1
  selector:
-  matchLaels:
+  matchLabels:
    app: cart
    tier: cart
    project: roboshop
