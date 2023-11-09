@@ -27,9 +27,6 @@ spec:
       envFrom:
        - configMapRef:
           name: mysql
-      envFrom:
-       - secretRef:
-          name: mysql-auth
 ---
 apiVersion: v1
 kind: Service
@@ -58,6 +55,7 @@ data:
  MYSQL_DATABASE: "cities"
  MYSQL_USER: "shipping"  #We can pass username here or else we can pass through secrets as well
  MYSQL_PASSWORD: "RoboShop@1" #We can pass password here or else we can pass through secrets as well
+
 # ---
 # apiVersion: v1
 # kind: Secret
