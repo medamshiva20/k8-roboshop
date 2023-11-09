@@ -1,0 +1,68 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: mysql
+ namespace: roboshop
+ labels:
+  app: mysql
+  tier: mysql
+  project: roboshop
+spec:
+ replicas: 1
+ selector:
+  matchLabels:
+   app: mysql
+   tier: mysql
+   project: roboshop
+ template:
+  metadata:
+   app: mysql
+   tier: mysql
+   project: roboshop
+  spec:
+   containers:
+    - name: mysql
+      image: sivadevops1014/mysql:1.0.0
+      envFrom:
+       - configMapRef:
+          name: mysql
+       - secretRef:
+          name: mysql-auth
+---
+apiVersion: v1
+kind: Service
+metadata:
+ name: mysql
+ namespace: roboshop
+spec:
+ type: ClusterIP
+ selector:
+  app: mysql
+  tier: mysql
+  project: roboshop
+ ports:
+ - name: mysql-port
+   protocol: TCP
+   port: 3306 # this port belongs to service
+   targetPort: 3306 # this port belongs to container
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+ name: mysql-auth
+ namespace: roboshop
+data:
+ MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+ MYSQL_DATABASE: "cities"
+ #MYSQL_USER: "shipping"  #We can pass username here or else we can pass through secrets as well
+ #MYSQL_PASSWORD: "RoboShop@1" #We can pass password here or else we can pass through secrets as well
+---
+apiVersion: v1
+kind: Secret
+metadata:
+ name: mysql
+ namespace: roboshop
+data:
+ MYSQL_USER: c2hpcHBpbmcK
+ MYSQL_PASSWORD: Um9ib1Nob3BAMQo=
+...
