@@ -16,9 +16,10 @@ spec:
    project: roboshop
  template:
   metadata:
-   app: mysql
-   tier: mysql
-   project: roboshop
+   labels:
+    app: mysql
+    tier: mysql
+    project: roboshop
   spec:
    containers:
     - name: mysql
