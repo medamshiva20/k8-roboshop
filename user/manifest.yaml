@@ -25,7 +25,7 @@ spec:
       image: sivadevops1014/user:1.0.0
         envFrom:
         - configMapRef:
-            name: catalogue
+            name: user
 ---
 apiVersion: v1
 kind: Service
