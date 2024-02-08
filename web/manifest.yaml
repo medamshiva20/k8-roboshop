@@ -104,7 +104,7 @@ metadata:
     tier: web
     project: roboshop
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels: # these labels should match with pod
       app: web
