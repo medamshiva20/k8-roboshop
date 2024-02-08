@@ -3,7 +3,8 @@ kind: ConfigMap
 metadata:
  name: nginx
  namespace: roboshop
-data: |
+data: 
+ nginx-conf: |
   user www-data;
   worker_processes 4;
   pid /var/run/nginx.pid;
