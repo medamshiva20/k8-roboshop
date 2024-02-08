@@ -134,7 +134,7 @@ spec:
         memory: "128Mi"
       volumeMounts:
        - name: nginx-conf # name of the volume you created above
-         mountPath: /etc/nginc/nginx.conf
+         mountPath: /etc/nginx/nginx.conf
          subPath: nginx.conf
          readOnly: true
 ---
