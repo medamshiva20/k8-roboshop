@@ -16,9 +16,10 @@ spec:
    tier: db
  template:
   metadata:
-   environment: dev
-   project: roboshop
-   tier: db
+   labels:
+    environment: dev
+    project: roboshop
+    tier: db
   spec:
    containers:
     - name: mongodb
