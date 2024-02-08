@@ -24,6 +24,9 @@ spec:
    containers:
     - name: catalogue
       image: sivadevops1014/catalogue:1.1.0
+      envFrom:
+       - configMapRef:
+          name: catalogue
 ---
 apiVersion: v1
 kind: Service
