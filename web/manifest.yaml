@@ -120,8 +120,8 @@ spec:
       configMap:
        name: nginx
        items:
-        - key: nginx.conf
-          path: nginx.conf
+       - key: nginx.conf
+         path: nginx.conf
    containers:
     - name: web
       image: sivadevops1014/web:1.1.0
