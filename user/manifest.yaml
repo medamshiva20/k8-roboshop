@@ -15,18 +15,18 @@ spec:
    app: user
    tier: app
  template:
- metadata:
-  labels:
-   environment: dev
-   app: user
-   tier: app
- spec:
-  containers:
-   - name: user
-     image: sivadevops1014/user:1.1.0
-     envFrom:
-      - configMapRef:
-         name: user
+  metadata:
+   labels:
+    environment: dev
+    app: user
+    tier: app
+  spec:
+   containers:
+    - name: user
+      image: sivadevops1014/user:1.1.0
+      envFrom:
+       - configMapRef:
+          name: user
 ---
 apiVersion: v1
 kind: Service
