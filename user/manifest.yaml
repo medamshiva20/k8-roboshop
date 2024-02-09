@@ -34,7 +34,7 @@ metadata:
  name: user
  namespace: roboshop
 spec:
- type: Cluster IP
+ type: ClusterIP
  selector:
   environment: dev
   app: user
