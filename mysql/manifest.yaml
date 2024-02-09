@@ -52,5 +52,5 @@ metadata:
 data:
   MYSQL_ALLOW_EMPTY_PASSWORD: "yes" # keep true in double quotes
   MYSQL_DATABASE: "cities"
- MYSQL_USER: "shipping"
- MYSQL_PASSWORD: "RoboShop@1"
+  MYSQL_USER: "shipping"
+  MYSQL_PASSWORD: "RoboShop@1"
