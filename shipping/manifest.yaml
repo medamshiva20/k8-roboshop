@@ -23,7 +23,7 @@ spec:
     spec:
       containers:
       - name: shipping
-        image: sivadevops1014/shipping:1.0.0
+        image: sivadevops1014/shipping:1.1.0
         envFrom:
         - configMapRef:
             name: shipping
