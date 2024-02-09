@@ -5,20 +5,20 @@ metadata:
  namespace: roboshop
  labels:
   app: cart
-  tier: cart
+  tier: app
   project: roboshop
 spec:
  replicas: 1
  selector:
   matchLabels:
    app: cart
-   tier: cart
+   tier: app
    project: roboshop
  template:
   metadata:
    labels:
     app: cart
-    tier: cart
+    tier: app
     project: roboshop
   spec:
    containers:
@@ -37,7 +37,7 @@ spec:
  type: ClusterIP
  selector:
   app: cart
-  tier: cart
+  tier: app
   project: roboshop
  ports:
   - name: cart-port
