@@ -25,8 +25,10 @@ spec:
       - name: mysql
         image: sivadevops1014/mysql:1.0.0
         envFrom:
-        - configMapRef:
+         - configMapRef:
             name: mysql
+         - secretRef:
+            name: mysql-sec
 ---
 apiVersion: v1
 kind: Service
@@ -52,5 +54,14 @@ metadata:
 data:
   MYSQL_ALLOW_EMPTY_PASSWORD: "yes" # keep true in double quotes
   MYSQL_DATABASE: "cities"
-  MYSQL_USER: "shipping"
-  MYSQL_PASSWORD: "RoboShop@1"
+ # MYSQL_USER: "shipping"
+ # MYSQL_PASSWORD: "RoboShop@1"
+---
+apiVersion: v1
+kind: Secret
+metadata:
+ name: mysql-sec
+ namespace: roboshop
+data:
+ MYSQL_USER: "c2hpcHBpbmcK"
+ MYSQL_PASSWORD: "Um9ib1Nob3BAMQo="
