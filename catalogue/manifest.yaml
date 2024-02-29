@@ -26,11 +26,11 @@ spec:
       image: sivadevops1014/catalogue:1.1.0
       resources:
        requests:
-        cpu: "68Mi"
-        memory: "50m"
+        cpu: "68m"
+        memory: "50Mi"
        limits:
-        cpu: "128Mi"
-        memory: "100m" 
+        cpu: "128m"
+        memory: "100mi" 
       envFrom:
        - configMapRef:
           name: catalogue
