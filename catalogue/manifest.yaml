@@ -28,9 +28,9 @@ spec:
        requests:
         cpu: "68Mi"
         memory: "50m"
-      limits:
-       cpu: "128Mi"
-       memory: "100m" 
+       limits:
+        cpu: "128Mi"
+        memory: "100m" 
       envFrom:
        - configMapRef:
           name: catalogue
