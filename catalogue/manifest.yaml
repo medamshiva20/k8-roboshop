@@ -24,6 +24,13 @@ spec:
    containers:
     - name: catalogue
       image: sivadevops1014/catalogue:1.1.0
+      resources:
+       requests:
+        cpu: "68Mi"
+        memory: "50m"
+      limits:
+       cpu: "128Mi"
+       memory: "100m" 
       envFrom:
        - configMapRef:
           name: catalogue
